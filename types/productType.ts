@@ -6,16 +6,13 @@ export type ProductType = {
   description: string
   category: string
   thumbnail: string
-  image: string
   rating: number
   brand: string
-  reviews: [
-    {
-      reviewerName: string
-      reviewerEmail: string
-      comment: string
-      rating: number
-      date: Date
-    }
-  ]
+  reviews: {
+    reviewerName: string
+    reviewerEmail: string
+    comment: string
+    rating: number
+    date: Date
+  }[]
 }
