@@ -1,27 +1,30 @@
 import { ModeToggle } from "@/components/ModeToggle"
-import { Button } from "@/components/ui/button"
-import { KeyRound, ShoppingBag } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import ButtonCart from "./ButtonCart"
+import Logout from "./Logout"
+import { auth } from '@/app/api/auth/auth'
 
-const Navbar = () => {
+const Navbar =async () => {
+  const session = await auth()
+  // const { user } = (session as any) || {}
   return (
-    <div className='h-16 flex justify-between items-center border-b-2 px-4'>
+    <div className='h-16 flex justify-between items-center border-b-2 px-8 max-sm:px-2'>
       <Link href='/' className='flex items-center gap-4'>
         <Image
-          src='/Luxe_Logo.png'
+          src='/logo.webp'
           alt='Vercel Logo'
-          className='dark:invert'
-          width={60}
+          className='dark:invert rounded-full'
+          width={40}
 
-          height={60}
+          height={40}
           priority
         />
         <h1 className="text-2xl  italic text-primary ">Luxury Shop</h1>
       </Link>
       <div className="flex items-center gap-4">
-        <Button size={'icon'} className="relative"><ShoppingBag/><span className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 text-xs bg-red-600 text-white rounded-full w-4 h-4 flex items-center justify-center">4</span></Button>
-        <Button size={'icon'}><KeyRound /></Button>
+       <ButtonCart/>
+       <Logout session={session} />
         <ModeToggle />
       </div>
     </div>

@@ -23,11 +23,11 @@ const Categories = async ({ searchParams,}: {searchParams: Promise<{ categories:
       <h1 className='text-2xl font-bold mb-4'>
         Categories: {categories}
       </h1>
-      <div className='w-full grid grid-cols-4 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-4 '>
+      <div className='w-full grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4 '>
         {productsByCategory.length > 0 ? (
           productsByCategory.map((product: ProductType) => (
             <Card key={product.id} className='relative rounded-lg shadow-md p-4 flex flex-col items-center'>
-             <Link href={`/product?id=${product.id}&title=${product.title}&discountPercentage=${product.discountPercentage}&price=${product.price}&thumbnail=${product.thumbnail}&description=${product.description}&category=${product.category}&brand=${product.brand}&rating=${product.rating}&reviews=${product.reviews}&images=${product.images}`}>
+              <Link href={`/product?id=${product.id}&title=${product.title}&discountPercentage=${product.discountPercentage}&price=${product.price}&thumbnail=${product.thumbnail}&description=${product.description}&category=${product.category}&brand=${product.brand}&rating=${product.rating}&reviews=${encodeURIComponent(JSON.stringify(product.reviews))}`}>
                 <CardHeader>
               <Image
                 src={product.thumbnail}
