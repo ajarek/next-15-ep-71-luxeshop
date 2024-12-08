@@ -1,17 +1,13 @@
-import { create } from 'zustand'
-import { persist, createJSONStorage } from 'zustand/middleware'
+import { create } from "zustand"
+import { persist, createJSONStorage } from "zustand/middleware"
 
-
-export type Item =
-  | {
-      id: number
-      title: string
-      image: string
-      quantity: number
-      price: number
-      
-    }
-  
+export type Item = {
+  id: number
+  title: string
+  image: string
+  quantity: number
+  price: number
+}
 
 type ItemState = {
   items: Item[]
@@ -75,6 +71,6 @@ export const useCartStore = create<ItemState>()(
           ),
     }),
 
-    { name: 'cartStore', storage: createJSONStorage(() => localStorage) }
+    { name: "cartStore", storage: createJSONStorage(() => localStorage) }
   )
 )

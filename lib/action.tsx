@@ -36,7 +36,7 @@ export const deleteUser = async (formData: FormData) => {
     console.log({ message: `Deleted user ${id}` })
     return { message: `Deleted user ${id}` }
   } catch (err) {
-    return { message: 'Failed to delete user' }
+    return { message: 'Failed to delete user'+err }
   }
 }
 
@@ -62,8 +62,8 @@ export const updateUser = async (formData: FormData) => {
 
     return { message: `Updated user ${_id}` }
   } catch (err) {
-    return { message: 'Failed to update to db' }
+    return { message: 'Failed to update to db'+err }
   } finally {
-    redirect('/dashboard/')
+    redirect('/')
   }
 }

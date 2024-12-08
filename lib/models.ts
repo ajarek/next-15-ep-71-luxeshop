@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose"
 
 export type User = {
   _id: string
@@ -8,7 +8,7 @@ export type User = {
   img: string
   isAdmin: boolean
 }
-export type UserWithoutId = Omit<User, '_id'>
+export type UserWithoutId = Omit<User, "_id">
 
 const userSchema = new mongoose.Schema(
   {
@@ -21,4 +21,4 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 )
 
-export const User = mongoose.models?.User || mongoose.model('User', userSchema)
+export const User = mongoose.models?.User || mongoose.model("User", userSchema)

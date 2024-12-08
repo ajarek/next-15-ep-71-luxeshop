@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose"
 
 export default async function connectToDb() {
   try {
@@ -6,9 +6,9 @@ export default async function connectToDb() {
     if (uri) {
       await mongoose.connect(uri)
     } else {
-      throw new Error('MONGO_URI is not set')
+      throw new Error("MONGO_URI is not set")
     }
   } catch (error) {
-    throw new Error('Connection failed!'+error)
+    throw new Error("Connection failed!" + error)
   }
 }

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Button } from './ui/button'
+import React from "react"
+import { Button } from "./ui/button"
 
 const Counter = ({
   quantityItems,
@@ -14,7 +14,7 @@ const Counter = ({
     <div className='flex items-center gap-2 '>
       <span className=' text-lg text-gray-500 '>Quantity: </span>
       <Button
-        size={'icon'}
+        size={"icon"}
         className='bg-transparent rounded-full'
         onClick={() => decrement()}
         aria-label='Decrement quantity'
@@ -25,7 +25,7 @@ const Counter = ({
         {quantityItems.toString()}
       </div>
       <Button
-        size={'icon'}
+        size={"icon"}
         className='bg-transparent rounded-full'
         onClick={() => increment()}
         aria-label='Increment quantity'

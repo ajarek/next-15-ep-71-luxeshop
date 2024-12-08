@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import { useRouter } from 'next/navigation'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Button } from '@/components/ui/button'
-import { useToast } from '@/hooks/use-toast'
-import { useCartStore } from '@/store/cartStore'
+import { useRouter } from "next/navigation"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Button } from "@/components/ui/button"
+import { useToast } from "@/hooks/use-toast"
+import { useCartStore } from "@/store/cartStore"
 
 const FormPayment = ({ nameUser }: { nameUser: string }) => {
   const { items, total, removeAll } = useCartStore()
@@ -14,11 +14,11 @@ const FormPayment = ({ nameUser }: { nameUser: string }) => {
 
   const toastAlert = () => {
     toast({
-      variant: 'default',
+      variant: "default",
       title:
-        'Paid ' +
-        total().toLocaleString('us', { style: 'currency', currency: 'USD' }),
-      description: 'Thank you ' + nameUser.toUpperCase(),
+        "Paid " +
+        total().toLocaleString("us", { style: "currency", currency: "USD" }),
+      description: "Thank you " + nameUser.toUpperCase(),
     })
   }
 
@@ -27,7 +27,7 @@ const FormPayment = ({ nameUser }: { nameUser: string }) => {
     toastAlert()
     removeAll()
     setTimeout(() => {
-      router.push('/')
+      router.push("/")
     }, 3000)
   }
 
@@ -42,9 +42,9 @@ const FormPayment = ({ nameUser }: { nameUser: string }) => {
             <Label htmlFor='cardNumber'>To be paid</Label>
             <Input
               type='text'
-              value={total().toLocaleString('pl', {
-                style: 'currency',
-                currency: 'PLN',
+              value={total().toLocaleString("pl", {
+                style: "currency",
+                currency: "PLN",
               })}
               readOnly
               required
@@ -81,17 +81,14 @@ const FormPayment = ({ nameUser }: { nameUser: string }) => {
           </div>
 
           <div className='w-full flex justify-end  mt-4'>
-            <Button
-              type='submit'
-              aria-label='I order and pay'
-            >
-             I order and pay 
+            <Button type='submit' aria-label='I order and pay'>
+              I order and pay
             </Button>
           </div>
         </form>
       ) : (
         <Button
-          onClick={() => router.push('/components')}
+          onClick={() => router.push("/components")}
           aria-label='All Products'
         >
           All Products

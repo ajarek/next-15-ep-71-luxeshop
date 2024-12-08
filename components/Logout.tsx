@@ -1,8 +1,8 @@
-import type { Session } from 'next-auth'
-import Link from 'next/link'
-import LogoutBtn from '@/components/LogoutBtn'
-import { buttonVariants } from '@/components/ui/button'
-import { KeyRound } from 'lucide-react'
+import type { Session } from "next-auth"
+import Link from "next/link"
+import LogoutBtn from "@/components/LogoutBtn"
+import { buttonVariants } from "@/components/ui/button"
+import { KeyRound } from "lucide-react"
 
 const Logout = async ({ session }: { session: Session | null }) => {
   return (
@@ -12,12 +12,13 @@ const Logout = async ({ session }: { session: Session | null }) => {
       ) : (
         <Link
           className={`${buttonVariants({
-            variant: 'default', size:'icon'
+            variant: "default",
+            size: "icon",
           })} h-7 text-[18px] `}
-          href={'/register'}
+          href={"/register"}
           aria-label='Login'
         >
-           <KeyRound />
+          <KeyRound />
         </Link>
       )}
       {session && (

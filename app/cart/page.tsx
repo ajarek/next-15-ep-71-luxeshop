@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import React from 'react'
-import { useCartStore } from '@/store/cartStore'
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-import { useRouter } from 'next/navigation'
+import React from "react"
+import { useCartStore } from "@/store/cartStore"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 const Cart = () => {
   const { items, increment, decrement, removeItemFromCart, total, removeAll } =
     useCartStore()
@@ -30,7 +30,6 @@ const Cart = () => {
                   />
                 </div>
                 <div className='w-full text-start'>{item.title}</div>
-                
 
                 <div className=' max-sm:hidden'>${item.price.toFixed(2)}</div>
 
@@ -75,7 +74,7 @@ const Cart = () => {
               Delete All
             </Button>
             <Button
-              onClick={() => router.push('/payment')}
+              onClick={() => router.push("/payment")}
               aria-label='go to payment'
             >
               I buy Products
@@ -84,10 +83,14 @@ const Cart = () => {
         </>
       ) : (
         <>
-        <h1 className='text-2xl text-center py-8'>Cart is empty !</h1>
-        <Button className='w-fit mx-auto' onClick={() => router.push('/categories?categories=all')}>Go to the store</Button>
+          <h1 className='text-2xl text-center py-8'>Cart is empty !</h1>
+          <Button
+            className='w-fit mx-auto'
+            onClick={() => router.push("/categories?categories=all")}
+          >
+            Go to the store
+          </Button>
         </>
-
       )}
     </div>
   )

@@ -1,29 +1,30 @@
-import NextAuth from 'next-auth'
-import CredentialsProvider from 'next-auth/providers/credentials'
-import { User } from '@/lib/models'
-import connectToDb from '@/lib/connectToDb'
-import bcrypt from 'bcryptjs'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import NextAuth from "next-auth"
+import CredentialsProvider from "next-auth/providers/credentials"
+import { User } from "@/lib/models"
+import connectToDb from "@/lib/connectToDb"
+import bcrypt from "bcryptjs"
 
 export const {
   auth,
   handlers: { GET, POST },
 } = NextAuth({
   pages: {
-    error: '/register',
+    error: "/register",
   },
   theme: {
-    colorScheme: 'dark', // "auto" | "dark" | "light"
-    brandColor: '#0E78F9', // Hex color code
-    logo: '/logo.webp', // Absolute URL to image
-    buttonText: '#ffffff', // Hex color code
+    colorScheme: "dark", // "auto" | "dark" | "light"
+    brandColor: "#0E78F9", // Hex color code
+    logo: "/logo.webp", // Absolute URL to image
+    buttonText: "#ffffff", // Hex color code
   },
 
   providers: [
     CredentialsProvider({
-      name: 'Credential',
+      name: "Credential",
       credentials: {
-        username: { type: 'text', required: true },
-        password: { type: 'password', required: true },
+        username: { type: "text", required: true },
+        password: { type: "password", required: true },
       },
 
       async authorize(credentials: any) {
@@ -39,15 +40,15 @@ export const {
               return user
             }
           }
-        } catch (err: any) {
-          throw new Error(err)
+        } catch (err) {
+          throw new Error(err instanceof Error ? err.message : String(err))
         }
       },
     }),
   ],
 
   callbacks: {
-    async jwt({ token, user, session }: any) {
+    async jwt({ token, user }: any) {
       if (user) {
         return {
           ...token,
@@ -59,7 +60,7 @@ export const {
       }
       return token
     },
-    async session({ session, token, user }: any) {
+    async session({ session, token }: any) {
       return {
         ...session,
         user: {
@@ -72,12 +73,12 @@ export const {
       }
     },
 
-    async redirect({ url, baseUrl }) {
+    async redirect({ baseUrl }) {
       return `${baseUrl}/cart`
     },
   },
   secret: process.env.AUTH_SECRET,
   session: {
-    strategy: 'jwt',
+    strategy: "jwt",
   },
 })

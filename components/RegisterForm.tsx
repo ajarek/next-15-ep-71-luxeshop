@@ -1,26 +1,26 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import { UserWithoutId } from '@/lib/models'
-import { addUser } from '@/lib/action'
-import { useRouter } from 'next/navigation'
-import Link from 'next/link'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import Image from 'next/image'
+import React, { useState } from "react"
+import { UserWithoutId } from "@/lib/models"
+import { addUser } from "@/lib/action"
+import { useRouter } from "next/navigation"
+import Link from "next/link"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 const DEFAULT_IS_ADMIN: boolean = false
 
 const RegisterForm = () => {
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [img, setImage] = useState('')
-  const [isAdmin, setIsAdmin] = useState(DEFAULT_IS_ADMIN)
+  const [username, setUsername] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [img, setImage] = useState("")
+  const [isAdmin] = useState(DEFAULT_IS_ADMIN)
 
   const router = useRouter()
 
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formData: UserWithoutId = {
       username,
@@ -32,70 +32,59 @@ const RegisterForm = () => {
 
     try {
       await addUser(formData)
-      router.push('/api/auth/signin')
+      router.push("/api/auth/signin")
     } catch (error) {
       console.log(error)
     }
   }
 
   return (
-    <div className="p-4">
-      <div className="flex justify-center p-2">
-        <Link href="/">
+    <div className='p-4'>
+      <div className='flex justify-center p-2'>
+        <Link href='/'>
           <Image
-            src="/logo.webp"
-            alt="logo"
+            src='/logo.webp'
+            alt='logo'
             width={40}
             height={40}
-            className="w-full h-full object-cover  "
+            className='w-full h-full object-cover  '
           />
         </Link>
       </div>
       <form
-        className="w-80  flex flex-col gap-4 p-6  text-primary"
+        className='w-80  flex flex-col gap-4 p-6  text-primary'
         onSubmit={handleSubmit}
       >
         <Input
-          type="text"
-          placeholder="first and last name"
+          type='text'
+          placeholder='first and last name'
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <Input
-          type="email"
-          placeholder="email"
+          type='email'
+          placeholder='email'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <Input
-          type="password"
-          placeholder="Password"
+          type='password'
+          placeholder='Password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <Input
-          type="text"
-          placeholder="Your photo"
+          type='text'
+          placeholder='Your photo'
           value={img}
           onChange={(e) => setImage(e.target.value)}
         />
-        <Input
-          type="hidden"
-          name="isAdmin"
-          value={`${DEFAULT_IS_ADMIN}`}
-        />
-        <Button
-          className="bg-[#0E78F9] hover:bg-[#0E78F9]/90"
-          type="submit"
-        >
+        <Input type='hidden' name='isAdmin' value={`${DEFAULT_IS_ADMIN}`} />
+        <Button className='bg-[#0E78F9] hover:bg-[#0E78F9]/90' type='submit'>
           Registration
         </Button>
-        <Link
-          href="/api/auth/signin"
-          className="text-white"
-        >
-          You already have an account? <b className="text-[#0E78F9]">
-          Login</b>
+        <Link href='/api/auth/signin' className='text-white'>
+          You already have an account? <b className='text-[#0E78F9]'>Login</b>
         </Link>
       </form>
     </div>
