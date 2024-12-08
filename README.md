@@ -1,5 +1,12 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+![Zrzut ekranu 2024-12-09 000122](https://github.com/user-attachments/assets/98783567-04d9-4fd0-b3ef-a077f4907e10)
+![Zrzut ekranu 2024-12-09 000204](https://github.com/user-attachments/assets/c4be1790-0a5a-4a94-b76a-e9ec7c75ea56)
+![Zrzut ekranu 2024-12-09 000239](https://github.com/user-attachments/assets/427c5b44-c13a-4484-b627-bca0d7a84929)
+![Zrzut ekranu 2024-12-09 000418](https://github.com/user-attachments/assets/16c4959f-7252-4e86-8f1d-61bb26433854)
+
+
+ 
 ## Getting Started
 
 First, run the development server:
