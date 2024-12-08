@@ -12,6 +12,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
  
 ## Getting Started
 add .env MONGO_URI=.....  AUTH_SECRET=....... 
+
 First, run the development server:
 
 ```bash
