@@ -51,7 +51,7 @@ const Product = ({ searchParams }: { searchParams: Promise<ProductType> }) => {
   return (
     <div className='min-h-[calc(100vh-4rem)] grid grid-cols-2 max-lg:grid-cols-1 items-center justify-start p-8 gap-2 '>
       <div className='flex flex-col items-center justify-center'>
-        <Image src={thumbnail} alt={title} width={400} height={400} />
+        <Image src={thumbnail} alt={title.slice(0,10)} width={400} height={400} />
         <p className='text-sm text-gray-500 mt-2'>Product ID: {id}</p>
       </div>
       <div className='flex flex-col gap-2'>

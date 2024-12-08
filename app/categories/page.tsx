@@ -43,7 +43,7 @@ const Categories = async ({
                 <CardHeader>
                   <Image
                     src={product.thumbnail}
-                    alt={product.title}
+                    alt={product.title.slice(0.10)}
                     width={200}
                     height={200}
                   />

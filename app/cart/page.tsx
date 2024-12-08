@@ -23,7 +23,7 @@ const Cart = () => {
                 <div className='w-fit flex relative max-sm:hidden '>
                   <Image
                     src={item.image}
-                    alt={item.title}
+                    alt={item.title.slice(0, 10)}
                     width={40}
                     height={40}
                     className=' self-start'

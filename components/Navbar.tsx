@@ -13,7 +13,7 @@ const Navbar = async () => {
       <Link href='/' className='flex items-center gap-4'>
         <Image
           src='/logo.webp'
-          alt='Vercel Logo'
+          alt='logo'
           className='dark:invert rounded-full'
           width={40}
           height={40}
